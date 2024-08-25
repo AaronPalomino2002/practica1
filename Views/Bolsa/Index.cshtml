@@ -1,0 +1,56 @@
+@model PROGRA3.Models.Bolsa
+@{
+    ViewBag.Title = "Bolsa";
+}
+<div class="container">
+    <h1>@ViewData["Title"]</h1>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form asp-controller="Bolsa" asp-action="Ordenar" method="post">
+                <div class="form-group">
+                        <label class="control-label">Ingrese sus nombres</label>
+                        <input asp-for="Nombres" class="form-control" />
+                </div>
+                <div class="form-group">
+                        <label class="control-label">Ingrese su Correo</label>
+                        <input asp-for="Correo" class="form-control" />
+                </div>
+                <div class="form-group">
+                         <label class="control-label">Selecciona una o más opciones:</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" />
+                        <label asp-for="Sp" class="form-check-label">S&P (500)</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" />
+                        <label asp-for="Dj" class="form-check-label">Down Jones (300)</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" />
+                        <label asp-for="Bu" class="form-check-label">Bono Us (120)</label>
+                </div>
+                <div class="form-group">
+                        <label class="control-label">Ingrese Monto a abonar</label>
+                        <input asp-for="MontoAbonar" class="form-control" />
+                </div>
+                <div class="form-group">
+                        <label>Seleccione su Fecha de Operacion</label>
+                        <input type="date" asp-for = "FecOpe" class="form-control"> 
+                </div>
+                 <button type="submit" class="btn btn-primary">Invertir</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+@if (Model != null)
+{
+    <h2>Resultados</h2>
+    <p><strong>Nombre:</strong> @Model.Nombres</p>
+    <p><strong>Correo:</strong> @Model.Correo</p>
+    <p><strong>Fecha de Operación:</strong> @Model.FecOpe</p>
+    <p><strong>Monto Abonado:</strong> $@Model.MontoAbonar</p>
+    <p><strong>IGV:</strong> $@Model.Igv</p>
+    <p><strong>Comisión:</strong> $@Model.Cobro</p>
+    <p><strong>Total a Pagar:</strong> $@Model.Total</p>
+}
