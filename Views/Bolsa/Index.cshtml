@@ -44,8 +44,10 @@
 </div>
 
 @if (Model != null)
-{
-    <h2>Resultados</h2>
+{   <div class="container mt-3">
+    <div class="row justify-content-center">
+        <div class="col-md-6 border">
+    <h3>Resultados</h3>
     <p><strong>Nombre:</strong> @Model.Nombres</p>
     <p><strong>Correo:</strong> @Model.Correo</p>
     <p><strong>Fecha de Operación:</strong> @Model.FecOpe</p>
@@ -53,4 +55,7 @@
     <p><strong>IGV:</strong> $@Model.Igv</p>
     <p><strong>Comisión:</strong> $@Model.Cobro</p>
     <p><strong>Total a Pagar:</strong> $@Model.Total</p>
+    </div>
+    </div>
+    </div>
 }
